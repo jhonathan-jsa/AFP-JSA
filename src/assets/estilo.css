@@ -1,0 +1,64 @@
+/* INICIO DRAWER */
+.v-navigation-drawer__border {
+    display: none !important;
+}
+
+.dark {
+    color           : #5b5 !important;
+    background-color: #1e1e1e !important;
+}
+
+.light {
+    color: rgb(44, 85, 44) !important;
+}
+
+/* FIM DRAWER */
+
+/* INICIO CARDS */
+.dark-card {
+    background: #111 !important;
+    color     : #dfd !important;
+}
+
+.light-card {
+    background: #fafefa !important;
+    color     : rgb(67, 75, 67) !important;
+}
+
+.dark-modal {
+    background: #111 !important;
+    color     : #dfd !important;
+}
+
+.light-modal {
+    background: #fafefa !important;
+    color     : rgb(32, 82, 32) !important;
+}
+
+/* FIM CARDS */
+
+/* INICIO SCROLL BAR */
+::-webkit-scrollbar {
+    background: #33333330;
+    width     : 10px;
+    height    : 0;
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 0 0 3.5px 0;
+}
+
+::-webkit-scrollbar-thumb {
+    background   : #33333370;
+    border-radius: 7px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #353535;
+}
+
+html> ::-webkit-scrollbar {
+    display: none;
+}
+
+/* FIM SCROLL BAR */
