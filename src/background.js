@@ -4,12 +4,12 @@ import { app, protocol, BrowserWindow, Menu } from 'electron'
 import { createProtocol } from 'vue-cli-plugin-electron-builder/lib'
 import installExtension, { VUEJS_DEVTOOLS } from 'electron-devtools-installer'
 
-import './backend/controllers/Controlador-perfil'
-import './backend/controllers/Controlador-categoria'
-import './backend/controllers/Controlador-fonte'
-import './backend/controllers/Controlador-lancamento'
-import './backend/controllers/Controlador-configuracao'
-import './backend/controllers/Controlador-sqlite'
+import './backend/repositories/R-Perfil'
+import './backend/repositories/R-Categoria'
+import './backend/repositories/R-Fonte'
+import './backend/repositories/R-Lancamento'
+import './backend/repositories/R-Configuracao'
+import './backend/repositories/R-SQLite'
 
 const isDevelopment = process.env.NODE_ENV !== 'production'
 

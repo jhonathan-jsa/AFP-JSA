@@ -41,7 +41,7 @@
             <template v-slot:item.valor="{ item }">
               <span
                 style="font-size: 16px; font-weight: 700; opacity: 0.8;text-shadow: 0 0 0.5px;"
-              >R$ {{(item.valor).toFixed(2)}}</span>
+              >{{(item.valor).toFixed(2)}}</span>
             </template>
 
             <template v-slot:item.descricao="{ item }">
@@ -94,25 +94,6 @@
                   </v-list-item>
                 </v-list>
               </v-menu>
-
-              <!-- <v-btn
-                color="edit"
-                text
-                @click="editarLancamento(item)"
-                v-if="item.nome != 'sem categoria'"
-              >
-                <v-icon small class="mr-1" size="14">mdi-pencil</v-icon>
-                <span style="font-size: 9px;">EDITAR</span>
-              </v-btn>
-              <v-btn
-                color="delete"
-                text
-                @click="deletarLancamento(item)"
-                v-if="item.nome != 'sem categoria'"
-              >
-                <v-icon small class="mr-1" size="14">mdi-delete</v-icon>
-                <span style="font-size: 9px;">REMOVER</span>
-              </v-btn>-->
             </template>
           </v-data-table>
         </v-container>

@@ -27,7 +27,7 @@ export default new Vuetify({
         primary: "#026873",
         secondary: "#026873",
         background: "#f5fff5",
-        card: "#cfdfcf",
+        card: "#dfefdf",
         modal: "#efe",
         confirm: "#393",
         cancel: "#a33",

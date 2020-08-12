@@ -3,10 +3,10 @@
     <v-row>
       <div style="padding: 7px 0; font-size: 11px; position: absolute; left: 25px;">
         <span>
-          <v-icon color="green">mdi-chart-line-variant</v-icon>Entradas
+          <v-icon color="green" size="12">mdi-align-vertical-bottom</v-icon> Entradas
         </span>
         <span>
-          <v-icon color="red">mdi-chart-line-variant</v-icon>Saídas
+          <v-icon color="red" size="12">mdi-align-vertical-bottom</v-icon> Saídas
         </span>
       </div>
       <v-spacer style="text-align: center;">
@@ -33,39 +33,8 @@
         item-color="green"
       ></v-select>
     </v-row>
-    <v-card color="transparent" elevation="0" style="max-width: 1400px; margin: 0 auto;">
+    <v-card color="transparent" elevation="0" style="max-width: 800px; margin: 0 auto;">
       <v-card-text>
-        <v-sheet color="transparent" style="max-width: 1400px;">
-          <!-- style="position: absolute; bottom: 150px;" -->
-          <v-sparkline
-            smooth="1"
-            line-width="0.5"
-            :value="[0,0,0,0,0,0,0,0,0,0,0,0]"
-            color="#55555520"
-            :height="16"
-            style="position: absolute; bottom: 170px; left: 0px;max-width: 1400px;"
-          ></v-sparkline>
-          <v-sparkline
-            auto-draw
-            smooth="1"
-            line-width="0.5"
-            :value="saidas"
-            color="red"
-            :height="tamanhos.saida"
-            style="position: absolute; bottom: 170px; left: 0px;max-width: 1400px;"
-          ></v-sparkline>
-          <v-sparkline
-            auto-draw
-            smooth="1"
-            line-width="0.5"
-            :value="entradas"
-            color="green"
-            :height="tamanhos.entrada"
-            style="position: absolute; bottom: 170px; left: 0px;max-width: 1400px;"
-          ></v-sparkline>
-        </v-sheet>
-
-        <div style="height: 330px;"></div>
         <v-row style="text-align: center; font-size: 10px;max-width: 1400px;" class="text--text">
           <v-col
             cols="12"
@@ -77,8 +46,30 @@
             :key="index"
           >
             <p>{{item.mes}}</p>
-            <p class="confirm--text">R${{item.entrada.toFixed(2)}}</p>
-            <p class="cancel--text">R${{item.saida.toFixed(2)}}</p>
+            <v-row
+              justify="center"
+              style="border-bottom: 5px solid #33333333;height: 210px;"
+              align="end"
+            >
+              <div
+                style="width: 20px;background: #007700;border-radius: 3px 3px 0 0;height: 0px;transition-duration: 0.7s;"
+                :id="item.mes+'-entrada'"
+              ></div>
+              <div
+                style="width: 20px;background: #770000;border-radius: 3px 3px 0 0;height: 0px;transition-duration: 0.7s;"
+                :id="item.mes+'-saida'"
+              ></div>
+            </v-row>
+            <v-row>
+              <span
+                style="word-break: break-all; padding: 5px; text-shadow: 0 0 0.3px;"
+                class="confirm--text"
+              >{{item.entrada.toFixed(2)}}</span>
+              <span
+                style="word-break: break-all; padding: 5px; text-shadow: 0 0 0.3px;"
+                class="delete--text"
+              >{{item.saida.toFixed(2)}}</span>
+            </v-row>
           </v-col>
         </v-row>
       </v-card-text>
@@ -100,27 +91,17 @@ export default {
     operacoes: null,
     opcoesDeStatus: ["Todos", "Executados", "Pendentes"],
     status: "Todos",
-    tamanhos: {saida: 16, entrada: 16}
+    maior: 0,
   }),
   methods: {
     somar(tipo, lista) {
       return lista.reduce(
-        (total, valor) => (total = total + (valor.operacao == tipo && valor.valor > 0 ? valor.valor : 0)),0);
-    },
-    definirTamanhos(maximos) {
-      let ent = maximos.entrada;
-      let sai = maximos.saida;
-      if (ent > sai) {
-        return {
-          entrada: ent / (ent / 100) / 2 + 16,
-          saida: sai / (ent / 100) / 2 + 16,
-        };
-      } else {
-        return {
-          entrada: ent / (sai / 100) / 2 + 16,
-          saida: sai / (sai / 100) / 2 + 16,
-        };
-      }
+        (total, valor) =>
+          (total =
+            total +
+            (valor.operacao == tipo && valor.valor > 0 ? valor.valor : 0)),
+        0
+      );
     },
     atualizar() {
       ipcRenderer.send("lancamento-obter-periodo", {
@@ -136,7 +117,6 @@ export default {
     });
 
     ipcRenderer.on("lancamento-obter-periodo", (event, resp) => {
-      console.log(this.status);
       if (this.status != "Todos") {
         if (this.status == "Executados") {
           resp = resp.filter((i) => i.executado == 1);
@@ -227,9 +207,25 @@ export default {
       }
       this.entradas = this.operacoes.map((x) => x.entrada);
       this.saidas = this.operacoes.map((x) => x.saida);
-      this.tamanhos = this.definirTamanhos({
-        entrada: this.operacoes.map((x) => x.entrada).sort((x, y) => y - x)[0],
-        saida: this.operacoes.map((x) => x.saida).sort((x, y) => y - x)[0],
+      this.maior = this.operacoes
+        .map((x) => x.entrada)
+        .concat(this.operacoes.map((x) => x.saida))
+        .reduce((x, y) => (x > y ? x : y));
+      this.operacoes.forEach((x) => {
+        let ent = document.getElementById(x.mes + "-entrada");
+        if (ent != null) ent.style.height = "0px";
+        let sai = document.getElementById(x.mes + "-saida");
+        if (sai != null) sai.style.height = "0px";
+      });
+      this.operacoes.forEach((x) => {
+        let ent = document.getElementById(x.mes + "-entrada");
+        if (ent != null)
+          ent.style.height =
+            (x.entrada / (this.maior / 100)).toFixed(2) * 2 + "px";
+        let sai = document.getElementById(x.mes + "-saida");
+        if (sai != null)
+          sai.style.height =
+            (x.saida / (this.maior / 100)).toFixed(2) * 2 + "px";
       });
     });
   },
