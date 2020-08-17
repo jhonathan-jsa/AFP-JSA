@@ -25,7 +25,7 @@ protocol.registerSchemesAsPrivileged([
 function createWindow() {
   // Create the browser window.
   win = new BrowserWindow({
-    transparent: true,
+    // transparent: false,
     frame: false,
     width: 1024,
     height: 800,

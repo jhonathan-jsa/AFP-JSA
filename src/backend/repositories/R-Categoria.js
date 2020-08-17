@@ -33,7 +33,7 @@ ipcMain.on('categoria-criar', async (event, args) => {
       if (valida.length > 0) event.reply('modal-feedback', MENSAGENS.ERRO.CATEGORIA.CRI_DUP)
       else db.run(`INSERT INTO categoria (nome, icone, perfil_id) VALUES ("${args.nome}","${args.icone}",${perfil.id})`, function (err) {
         event.reply('categoria-criar', this.lastID)
-        event.reply('modal-feedback', MENSAGENS.ERRO.CATEGORIA.CRI_SUC)
+        event.reply('modal-feedback', MENSAGENS.SUCESSO.CATEGORIA.CRI_SUC)
       })
     })
   }
@@ -77,4 +77,18 @@ ipcMain.on('modal-categoria-criar', (event, args) => {
 //ABRIR MODAL EDITAR
 ipcMain.on('modal-categoria-editar', (event, args) => {
   event.reply('modal-categoria-editar', args)
+})
+
+
+//USADO POR ESTATÍSTICAS
+//OBTER TODOS AS FONTES DO PERFIL COM VALORES
+ipcMain.on('categoria-obter-com-valores', async (event, args) => {
+  let perfil = await getPerfilAtivo()
+  db.all(`SELECT * FROM categoria WHERE perfil_id = ${perfil.id}`, [], async (err, categorias) => {
+    for(let i = 0; i < categorias.length; i++){
+      await db.all(`SELECT * FROM lancamento WHERE perfil_id = ${perfil.id}  AND categoria_id = ${categorias[i].id} AND data BETWEEN date("${args.inicio}") AND date("${args.fim}");`, function (err, rows) {
+        event.reply('categoria-obter-com-valores', {categoria: categorias[i], dados: rows})
+      })
+    }
+  })
 })

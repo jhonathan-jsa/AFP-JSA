@@ -52,9 +52,9 @@ export default {
         ipcRenderer.send("modal-categoria-editar", this.categoria);
       } else if (op == "deletar") {
         ipcRenderer.send("modal-abrir", {
-          titulo: "Tem cereteza que deseja excluir a categoria?",
+          titulo: "Tem certeza que deseja excluir a categoria?.",
           mensagem:
-            'Todos os lançamentos que estiverem para ela serão automaticamente mudados para "SEM CATEGORIA".',
+            'Todos os lançamentos que estiverem atribuídos, serão automaticamente reatribuídos para "SEM CATEGORIA".',
           comando: "categoria-deletar",
           modelo: this.categoria,
         });

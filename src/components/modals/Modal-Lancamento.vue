@@ -138,7 +138,7 @@
                   :counter="50"
                   maxlength="50"
                   clearable
-                  messages="Minimo de 3 caracteres."
+                  messages="Mínimo de 3 caracteres."
                 ></v-text-field>
               </v-col>
               <v-col cols="12" sm="6" md="6" lg="6">

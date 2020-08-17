@@ -3,7 +3,7 @@
     <v-spacer style="webkit-app-region: drag;"></v-spacer>
     <v-chip
       class="noselect"
-      style="webkit-app-region: drag;font-size: 11px; margin: 3px 20px;"
+      style="webkit-app-region: drag;font-size: 14px; margin: 3px 20px;font-family: champagne-bold; text-shadow: 0 0 0.3px;"
       color="background"
     >
       G.F.P: JSA v.1.0.0
@@ -41,6 +41,7 @@ export default {
     },
     maximizar() {
       var window = remote.getCurrentWindow();
+      console.log(this.maximizado)
       if (!this.maximizado) {
         window.maximize();
         this.maximizado = true;

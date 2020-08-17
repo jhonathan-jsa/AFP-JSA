@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app :class="$vuetify.theme.dark? 'dark-b':'light-b'">
     <v-navigation-drawer
       app
       v-model="drawer"
@@ -12,8 +12,8 @@
     <v-app-bar color="background" elevation="0" app>
       <AppBar></AppBar>
     </v-app-bar>
-    <v-main>
-      <v-container fluid class="fill-height" style="padding: 0;">
+    <v-main style="height: 0px;">
+      <v-container fluid class="fill-height" style="padding: 0;overflow-y: scroll; overflow-x: hidden;">
         <v-card
           color="background"
           elevation="0"
@@ -29,6 +29,20 @@
           <ModalFeedback></ModalFeedback>
         </v-card>
       </v-container>
+      <!-- <v-card
+          color="background"
+          elevation="0"
+          class="fill-height"
+          style="border-radius: 0; width: -webkit-fill-available; padding: 10px; overflow: scroll;"
+        >
+          <router-view></router-view>
+          <ModalLancamento></ModalLancamento>
+          <ModalCategoria></ModalCategoria>
+          <ModalPerfil></ModalPerfil>
+          <ModalFonte></ModalFonte>
+          <ModalConfirmar></ModalConfirmar>
+          <ModalFeedback></ModalFeedback>
+      </v-card>-->
     </v-main>
     <v-footer app color="background">
       <v-spacer></v-spacer>
@@ -89,9 +103,12 @@ export default {
     comandoAbrirModal(comando) {
       ipcRenderer.send(comando);
     },
-    salvarTema(valor){
-      ipcRenderer.send("configuracao-dark-alterar",{chave:"dark",valor: valor? "SIM":"NÃO"});
-    }
+    salvarTema(valor) {
+      ipcRenderer.send("configuracao-dark-alterar", {
+        chave: "dark",
+        valor: valor ? "SIM" : "NÃO",
+      });
+    },
   },
   computed: {
     ...mapState({
@@ -103,7 +120,7 @@ export default {
     ipcRenderer.send("banco-inicializar");
     ipcRenderer.send("configuracao-dark-obter");
     ipcRenderer.on("configuracao-dark-obter", (event, resp) => {
-      this.$vuetify.theme.dark = resp.valor == "SIM"? true:false;
+      this.$vuetify.theme.dark = resp.valor == "SIM" ? true : false;
     });
 
     ipcRenderer.send("perfil-ativo");
@@ -124,7 +141,7 @@ export default {
 <style>
 @import "./assets/estilo.css";
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Avenir, Helvetica, Arial, sans-serif, champagne-bold, champagne;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -166,9 +183,9 @@ export default {
 
 /* INICIO SCROLL BAR */
 ::-webkit-scrollbar {
-  background: #33333330;
-  width: 10px;
-  height: 10px;
+  background: #33333300;
+  width: 15px;
+  height: 15px;
 }
 
 ::-webkit-scrollbar-track {
@@ -176,16 +193,22 @@ export default {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #33333370;
+  background: #33333325;
   border-radius: 7px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #353535;
+  background: #35353550;
 }
 
 html > ::-webkit-scrollbar {
   display: none;
+}
+.dark-b{
+  background-color: #020502 !important;
+}
+.light-b{
+  background-color: #f5fff5 !important;
 }
 
 /* FIM SCROLL BAR */

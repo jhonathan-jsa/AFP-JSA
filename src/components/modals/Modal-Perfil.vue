@@ -17,7 +17,7 @@
                   :counter="50"
                   maxlength="50"
                   clearable
-                  messages="Minimo de 3 caracteres."
+                  messages="Mínimo de 3 caracteres."
                 ></v-text-field>
               </v-col>
             </v-row>
@@ -43,7 +43,6 @@ export default {
     perfil: {
       id: 0,
       nome: "",
-      saldo: 0,
       status: "INATIVO"
     },
     counterEn: false,
@@ -70,8 +69,10 @@ export default {
       if(resp != undefined){
         this.perfil.id = resp.id;
         this.perfil.nome = resp.nome || "";
-        this.perfil.saldo = resp.saldo || 0;
         this.perfil.status = resp.status || "";
+      } else {
+        this.perfil.nome = "";
+        this.perfil.status = "";
       }
       this.dialog = true;
     }
@@ -87,7 +88,6 @@ export default {
       this.operacao = "";
       this.perfil.id = 0;
       this.perfil.nome = "";
-      this.perfil.saldo = 0;
       this.perfil.status = "";
       this.dialog = false;
     });
@@ -95,7 +95,6 @@ export default {
       this.operacao = "";
       this.perfil.id = 0;
       this.perfil.nome = "";
-      this.perfil.saldo = 0;
       this.perfil.status = "";
       this.dialog = false;
     });

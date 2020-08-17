@@ -51,9 +51,9 @@ export default {
         ipcRenderer.send("modal-fonte-editar", this.fonte);
       } else if (op == "deletar") {
         ipcRenderer.send("modal-abrir", {
-          titulo: "Tem cereteza que deseja excluir a fonte?",
+          titulo: "Tem certeza que deseja excluir a fonte?",
           mensagem:
-            'Todos os lançamentos que estiverem para ela serão automaticamente mudados para "FONTE DESCONHECIDA".',
+            'Todos os lançamentos que foram atribuídos, serão automaticamente reatribuídos para "FONTE DESCONHECIDA".',
           comando: "fonte-deletar",
           modelo: this.fonte,
         });

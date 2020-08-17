@@ -79,3 +79,17 @@ ipcMain.on('modal-fonte-criar', (event, args) => {
 ipcMain.on('modal-fonte-editar', (event, args) => {
   event.reply('modal-fonte-editar', args)
 })
+
+
+//USADO POR ESTATÍSTICAS
+//OBTER TODOS AS FONTES DO PERFIL COM VALORES
+ipcMain.on('fonte-obter-com-valores', async (event, args) => {
+  let perfil = await getPerfilAtivo()
+  db.all(`SELECT * FROM fonte WHERE perfil_id = ${perfil.id}`, [], async (err, fontes) => {
+    for(let i = 0; i < fontes.length; i++){
+      await db.all(`SELECT * FROM lancamento WHERE perfil_id = ${perfil.id}  AND fonte_id = ${fontes[i].id} AND data BETWEEN date("${args.inicio}") AND date("${args.fim}");`, function (err, rows) {
+        event.reply('fonte-obter-com-valores', {fonte: fontes[i], dados: rows})
+      })
+    }
+  })
+})
