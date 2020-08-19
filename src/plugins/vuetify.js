@@ -19,7 +19,8 @@ export default new Vuetify({
         confirm: "#393",
         cancel: "#a33",
         use: "#44c",
-        bar: "#205640"
+        bar: "#050a08",
+        tab_text: "#aaa"
       },
       light: {
         icon: "#025863",
@@ -34,7 +35,8 @@ export default new Vuetify({
         edit: "#393",
         delete: "#a33",
         use: "#55d",
-        bar: "#308670"
+        bar: "#dfefdf",
+        tab_text: "#777"
       },
     },
   },

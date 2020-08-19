@@ -3,6 +3,7 @@
 import { app, protocol, BrowserWindow, Menu } from 'electron'
 import { createProtocol } from 'vue-cli-plugin-electron-builder/lib'
 import installExtension, { VUEJS_DEVTOOLS } from 'electron-devtools-installer'
+import path from 'path'
 
 import './backend/repositories/R-Perfil'
 import './backend/repositories/R-Categoria'
@@ -21,11 +22,12 @@ let win
 protocol.registerSchemesAsPrivileged([
   { scheme: 'app', privileges: { secure: true, standard: true } }
 ])
-//Menu.setApplicationMenu(null)
+Menu.setApplicationMenu(null)
 function createWindow() {
   // Create the browser window.
   win = new BrowserWindow({
     // transparent: false,
+    icon: path.join(__static, 'logo.png'),
     frame: false,
     width: 1024,
     height: 800,
@@ -36,9 +38,10 @@ function createWindow() {
       // Use pluginOptions.nodeIntegration, leave this alone
       // See nklayman.github.io/vue-cli-plugin-electron-builder/guide/security.html#node-integration for more info
       // nodeIntegration: process.env.ELECTRON_NODE_INTEGRATION
-      nodeIntegration: true
-    }
+      nodeIntegration: true,
+    },
   })
+  // win.setIcon(path.join(__dirname, '/logo.png'));
 
   if (process.env.WEBPACK_DEV_SERVER_URL) {
     // Load the url of the dev server if in development mode

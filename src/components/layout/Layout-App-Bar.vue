@@ -2,11 +2,11 @@
   <v-row justify="end">
     <v-spacer style="webkit-app-region: drag;"></v-spacer>
     <v-chip
-      class="noselect"
+      class="noselect text--text"
       style="webkit-app-region: drag;font-size: 14px; margin: 3px 20px;font-family: champagne-bold; text-shadow: 0 0 0.3px;"
       color="background"
     >
-      G.F.P: JSA v.1.0.0
+      G.F.P v.1.0.0
       <v-icon style="margin: 0 5px 0 25px;" size="14">mdi-account-circle</v-icon>
       {{perfil}}
     </v-chip>

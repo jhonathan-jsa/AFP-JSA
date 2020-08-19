@@ -18,7 +18,7 @@
                   <v-img
                     src="./../../assets/img/perfil_principal.png"
                     style="box-shadow: 0 0 10px rgba(0,0,0,0.15);"
-                    height="450px"
+                    height="465px"
                     width="600px"
                   ></v-img>
                 </v-col>
@@ -28,7 +28,7 @@
                   <v-img
                     src="./../../assets/img/perfil_usar.png"
                     style="box-shadow: 0 0 10px rgba(0,0,0,0.15);"
-                    height="450px"
+                    height="465px"
                     width="600px"
                   ></v-img>
                 </v-col>
@@ -52,7 +52,7 @@
                   <v-img
                     src="./../../assets/img/perfil_novo.png"
                     style="box-shadow: 0 0 10px rgba(0,0,0,0.15);"
-                    height="450px"
+                    height="465px"
                     width="600px"
                   ></v-img>
                 </v-col>
@@ -72,7 +72,7 @@
                   <v-img
                     src="./../../assets/img/fonte_principal.png"
                     style="box-shadow: 0 0 10px rgba(0,0,0,0.15);"
-                    height="450px"
+                    height="465px"
                     width="600px"
                   ></v-img>
                 </v-col>
@@ -82,7 +82,7 @@
                   <v-img
                     src="./../../assets/img/fonte_nova.png"
                     style="box-shadow: 0 0 10px rgba(0,0,0,0.15);"
-                    height="450px"
+                    height="465px"
                     width="600px"
                   ></v-img>
                 </v-col>
@@ -105,7 +105,7 @@
                   <v-img
                     src="./../../assets/img/fonte_excluir.png"
                     style="box-shadow: 0 0 10px rgba(0,0,0,0.15);"
-                    height="450px"
+                    height="465px"
                     width="600px"
                   ></v-img>
                 </v-col>
@@ -125,7 +125,7 @@
                   <v-img
                     src="./../../assets/img/categoria_principal.png"
                     style="box-shadow: 0 0 10px rgba(0,0,0,0.15);"
-                    height="450px"
+                    height="465px"
                     width="600px"
                   ></v-img>
                 </v-col>
@@ -135,7 +135,7 @@
                   <v-img
                     src="./../../assets/img/categoria_nova.png"
                     style="box-shadow: 0 0 10px rgba(0,0,0,0.15);"
-                    height="450px"
+                    height="465px"
                     width="600px"
                   ></v-img>
                 </v-col>
@@ -158,7 +158,7 @@
                   <v-img
                     src="./../../assets/img/categoria_excluir.png"
                     style="box-shadow: 0 0 10px rgba(0,0,0,0.15);"
-                    height="450px"
+                    height="465px"
                     width="600px"
                   ></v-img>
                 </v-col>
@@ -180,7 +180,7 @@
                   <v-img
                     src="./../../assets/img/lancamento_principal.png"
                     style="box-shadow: 0 0 10px rgba(0,0,0,0.15);"
-                    height="450px"
+                    height="465px"
                     width="600px"
                   ></v-img>
                 </v-col>
@@ -190,7 +190,7 @@
                   <v-img
                     src="./../../assets/img/lancamento_novo.png"
                     style="box-shadow: 0 0 10px rgba(0,0,0,0.15);"
-                    height="450px"
+                    height="465px"
                     width="600px"
                   ></v-img>
                 </v-col>
@@ -206,7 +206,7 @@
                   <v-img
                     src="./../../assets/img/lancamento_exibir_calculos.png"
                     style="box-shadow: 0 0 10px rgba(0,0,0,0.15);"
-                    height="450px"
+                    height="465px"
                     width="600px"
                   ></v-img>
                 </v-col>
@@ -228,7 +228,7 @@
                   <v-img
                     src="./../../assets/img/dashboard_grafico_light.png"
                     style="box-shadow: 0 0 10px rgba(0,0,0,0.15);"
-                    height="450px"
+                    height="465px"
                     width="600px"
                   ></v-img>
                 </v-col>
@@ -238,7 +238,7 @@
                   <v-img
                     src="./../../assets/img/dashboard_segmentado.png"
                     style="box-shadow: 0 0 10px rgba(0,0,0,0.15);"
-                    height="450px"
+                    height="465px"
                     width="600px"
                   ></v-img>
                 </v-col>
@@ -264,7 +264,7 @@
             class="text--text"
             style="font-size: 16px; text-shadow: 0 0 0.5px; font-family: champagne-bold;"
           >
-            <p>Esse programa foi desenvolvido com objetivo de auxiliar no controle e visão dos gastos pessoais com uma abordagem própria.</p>
+            <p>Esse programa foi desenvolvido com objetivo de auxiliar no controle e visão dos gastos pessoais e possui uma abordagem própria.</p>
             <p>
               Em caso de maiores dúvidas ou suporte, envie um correio eletrônico para:
               <i class="info--text">developer.jsa@gmail.com</i>

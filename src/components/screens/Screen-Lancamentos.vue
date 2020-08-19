@@ -3,12 +3,13 @@
     <v-tabs
       v-model="mes"
       background-color="bar"
-      color="black"
+      color="tab_text"
       slider-color="transparent"
       fixed-tabs
       next-icon="mdi-arrow-right-bold"
       prev-icon="mdi-arrow-left-bold"
       show-arrows
+      style="animation-duration: 0s;"
     >
       <v-tab
         v-for="(mes,index) in meses"
@@ -398,9 +399,7 @@ export default {
   border-radius: 25px 0 0 25px;
 }
 .v-tab--active {
-  background: #1ea093;
-  color: rgb(17, 68, 47) !important;
-  border: 1px solid #377972;
+  background: #50505020;
   border-radius: 25px;
 }
 .v-list-item--active,
