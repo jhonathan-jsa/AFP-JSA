@@ -1,9 +1,9 @@
 {
-  "name": "adm-financeiro",
-  "title": "Administrador financeiro JSA",
-  "version": "1.0.0",
+  "name": "GF_DevKit",
+  "title": "Gerenciador Financerio - DevKit",
+  "version": "1.0.1",
   "private": true,
-  "author": "JSA",
+  "author": "Jhonathan Souza de Azevedo",
   "description": "Gerenciador financeiro de contas pessoais.",
   "scripts": {
     "serve": "vue-cli-service serve",

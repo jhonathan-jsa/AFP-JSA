@@ -1,7 +1,7 @@
 <template>
   <v-container fluid style="font-family: champagne-bold;">
     <v-row justify="center">
-      <div style="margin-bottom: 50px;" class="text--text">GERENCIADO FINANCEIRO PESSOAL V1.0.0</div>
+      <div style="margin-bottom: 50px;" class="text--text">GERENCIADO FINANCEIRO - DevKit V.1.0.1</div>
     </v-row>
     <v-row justify="start">
       <v-expansion-panels flat>
@@ -11,7 +11,7 @@
             <v-container>
               <v-row style="margin: 0  0 100px 0;">
                 <v-col>
-                  <p>O G.F.P utiliza perfis separados para que você possa configurar de forma pessoal.</p>
+                  <p>O G.F. DevKit utiliza perfis separados para que você possa configurar de forma pessoal.</p>
                   <p>Assim, para cada pessoa que for utilizar o programa no mesmo computador, será possível criar seu próprio perfil.</p>
                 </v-col>
                 <v-col align="center">
@@ -50,7 +50,7 @@
                 </v-col>
                 <v-col align="center">
                   <v-img
-                    src="./../../assets/img/perfil_novo.png"
+                    src="./../../assets/img/perfil_criar.png"
                     style="box-shadow: 0 0 10px rgba(0,0,0,0.15);"
                     height="465px"
                     width="600px"
@@ -80,7 +80,7 @@
               <v-row style="margin: 100px 0;">
                 <v-col align="center">
                   <v-img
-                    src="./../../assets/img/fonte_nova.png"
+                    src="./../../assets/img/fonte_criar.png"
                     style="box-shadow: 0 0 10px rgba(0,0,0,0.15);"
                     height="465px"
                     width="600px"
@@ -133,7 +133,7 @@
               <v-row style="margin:100px 0;">
                 <v-col align="center">
                   <v-img
-                    src="./../../assets/img/categoria_nova.png"
+                    src="./../../assets/img/categoria_criar.png"
                     style="box-shadow: 0 0 10px rgba(0,0,0,0.15);"
                     height="465px"
                     width="600px"
@@ -188,7 +188,7 @@
               <v-row style="margin:100px 0;">
                 <v-col align="center">
                   <v-img
-                    src="./../../assets/img/lancamento_novo.png"
+                    src="./../../assets/img/lancamento_criar.png"
                     style="box-shadow: 0 0 10px rgba(0,0,0,0.15);"
                     height="465px"
                     width="600px"
@@ -204,7 +204,7 @@
                 </v-col>
                 <v-col align="center">
                   <v-img
-                    src="./../../assets/img/lancamento_exibir_calculos.png"
+                    src="./../../assets/img/lancamento_exibir.png"
                     style="box-shadow: 0 0 10px rgba(0,0,0,0.15);"
                     height="465px"
                     width="600px"
@@ -226,7 +226,7 @@
                 </v-col>
                 <v-col align="center">
                   <v-img
-                    src="./../../assets/img/dashboard_grafico_light.png"
+                    src="./../../assets/img/grafico_anual.png"
                     style="box-shadow: 0 0 10px rgba(0,0,0,0.15);"
                     height="465px"
                     width="600px"
@@ -236,7 +236,7 @@
               <v-row style="margin:100px 0 0 0;">
                 <v-col align="center">
                   <v-img
-                    src="./../../assets/img/dashboard_segmentado.png"
+                    src="./../../assets/img/dados_segmentados.png"
                     style="box-shadow: 0 0 10px rgba(0,0,0,0.15);"
                     height="465px"
                     width="600px"

@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <v-row justify="center" style="padding: 20px 0 70px 0;">
-      <h1 class="text--text">Bem vindo ao G.F.P.</h1>
+      <h1 class="text--text">Bem vindo ao G.F. DevKit</h1>
     </v-row>
     <v-row>
       <v-col
